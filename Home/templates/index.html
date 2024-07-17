@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <body>
+            <title>Django Tutorial page</title>
+            <h1> This is HTML External Page</h1>
+
+            <table border="1">
+                <tr>
+                  <th>S no</th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Can Vote</th>
+                </tr>
+                {%for people in people%}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{people.name}}</td>
+                  <td>{{people.age}}</td>
+                  <td>{% if people.age <= 35 %}
+                    👍
+                    {% else %}
+                    👎 
+                    {%endif%}
+                </td>
+                </tr>
+                {% endfor %}
+        </body>
+    </head>
+</html>

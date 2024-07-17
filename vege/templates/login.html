@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block start %}
+
+    <div class="container mt-5">
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Login</h2><hr>
+            {% if messages %}
+           
+                    <div class="alert alert-primary" role="alert">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+        
+        {% endif %}
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input name="login" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="Password" type="password" class="form-control">
+            </div>
+            <p>Dont have an account <a href="/register/">Register</a></p>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+<br><br>
+
+
+    <!-- Bootstrap JS and dependencies (Optional for some features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    {% endblock %}
